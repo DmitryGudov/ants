@@ -3,11 +3,11 @@ public class RoundsServiceSecond {
         int rounds = 0;
 
         while (left >= 0 && left <= n && right >= 0 && right <= n) {
-            if ((left == n && right == (n - 1)) || (right == 0 && left == 1)) {
-                rounds++;
-                break;
-            }
             if (left - right == 1) {
+                if (left == n || right == 0) {
+                    rounds++;
+                    break;
+                }
                 left -= 2;
                 right += 2;
                 rounds++;
@@ -21,6 +21,7 @@ public class RoundsServiceSecond {
             right++;
             rounds++;
         }
+
         return rounds;
     }
 }
